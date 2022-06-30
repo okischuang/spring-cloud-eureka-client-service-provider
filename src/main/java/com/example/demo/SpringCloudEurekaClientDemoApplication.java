@@ -21,6 +21,12 @@ public class SpringCloudEurekaClientDemoApplication {
 
 	
 //	@HystrixCommand(fallbackMethod = "fallbackHandler")
+	
+	@GetMapping("health")
+	public String health() {
+		return "ok";
+	}
+	
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "AWS") String name, @RequestParam(value = "timeout") int timeout) {
 		if (timeout > 0) {
